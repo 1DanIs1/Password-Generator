@@ -1,10 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var upperLetters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-var lowerLetters = ["abcdefghijklmnopqrstuvwxyz"];
-var numbers = ["1234567890"];
-var symbols = ["!@#$%^&*()+=-?><~"];
+var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "1234567890";
+var symbols = "!@#$%^&*()+=-?><~";
 
 var passwordText = "";
 var passwordLength = 0;
@@ -34,12 +34,6 @@ function promptUser() {
     passwordLength=sign;
 
 }
-  
-
-
-
-
-
 
 //This should generate password
 function generatePassword(){
@@ -48,8 +42,9 @@ function generatePassword(){
   const passwordCharacters = []
   for (let i = 0; i < passwordLength; i++){
     const password = passwordText[Math.floor(Math.random() * passwordLength)];
+    passwordCharacters.push(password);
   }
-    
+  newPassword = passwordCharacters.join("");
   return newPassword;
     
 }
@@ -62,8 +57,5 @@ function writePassword(){
   passwordText.value = password;
 }
   
-
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
